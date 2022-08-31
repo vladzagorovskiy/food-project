@@ -138,7 +138,7 @@ function getTimeRemaining(endtime) {
         }
     }
 
-    // const modalTimerId = setTimeout(openModal, 13000);
+    const modalTimerId = setTimeout(openModal, 13000);
 
     window.addEventListener('scroll', showModalByScroll);
 
