@@ -226,10 +226,22 @@ function getTimeRemaining(endtime) {
     };
 
     forms.forEach(item => {
-        postData(item);
+        bindPostData(item);
     });
 
-    function postData(form){
+    const postData = (url, data) => {
+        const res = fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-type': 'applocation/json'
+            },
+            body: data
+        });
+
+        return res.json();
+    };
+
+    function bindPostData(form){
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
@@ -291,4 +303,8 @@ function getTimeRemaining(endtime) {
             closeModal();
         }, 4000);
     }
+
+    fetch('http://localhost:3000/menu')
+        .then(data => data.json())
+        .then(res => console.log(res));
 });
