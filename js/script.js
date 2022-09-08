@@ -391,6 +391,31 @@ function getTimeRemaining(endtime) {
         dots.push(dot);
     }
 
+    function changeDotsStyle () {
+        dots.forEach(dot => dot.style.opacity = '.5');
+        dots[slideIndex - 1].style.opacity = 1;
+    }
+
+    function addingZero () {
+        if (slides.length < 10) {
+            current.textContent = `0${slideIndex}`;
+        } else {
+            current.textContent = slideIndex;
+        }
+    }
+
+    function normalizeSlidesField () {
+        slidesField.style.transform = `translateX(-${offset}px)`;
+    }
+
+    function changeToNextSlide () {
+        if (slideIndex == slides.length){
+            slideIndex = 1;
+        } else {
+            slideIndex++;
+        }
+    }
+
     next.addEventListener('click', () => {
         if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)){
             offset = 0;
@@ -398,22 +423,13 @@ function getTimeRemaining(endtime) {
             offset += +width.slice(0, width.length - 2);
         }
 
-        slidesField.style.transform = `translateX(-${offset}px)`;
+        normalizeSlidesField ();
 
-        if (slideIndex == slides.length){
-            slideIndex = 1;
-        } else {
-            slideIndex++;
-        }
+        changeToNextSlide ();
 
-        if (slides.length < 10) {
-            current.textContent = `0${slideIndex}`;
-        } else {
-            current.textContent = slideIndex;
-        }
+        addingZero ();
 
-        dots.forEach(dot => dot.style.opacity = '.5');
-        dots[slideIndex - 1].style.opacity = 1;
+        changeDotsStyle ();
     });
 
     prev.addEventListener('click', () => {
@@ -423,22 +439,13 @@ function getTimeRemaining(endtime) {
             offset -= +width.slice(0, width.length - 2);
         }
 
-        slidesField.style.transform = `translateX(-${offset}px)`;
+        normalizeSlidesField ();
 
-        if (slideIndex == 1) {
-            slideIndex = slides.length;
-        } else {
-            slideIndex--;
-        }
+        changeToNextSlide ();
+        
+        addingZero ();
 
-        if (slides.length < 10) {
-            current.textContent = `0${slideIndex}`;
-        } else {
-            current.textContent = slideIndex;
-        }
-
-        dots.forEach(dot => dot.style.opacity = '.5');
-        dots[slideIndex - 1].style.opacity = 1;
+        changeDotsStyle ();
     });
 
     dots.forEach(dot => {
@@ -448,17 +455,11 @@ function getTimeRemaining(endtime) {
             slideIndex = slideTo;
             offset = +width.slice(0, width.length - 2) * (slideTo - 1);
 
-            slidesField.style.transform = `translateX(-${offset}px)`;
+            normalizeSlidesField ();
 
-            if (slides.length < 10) {
-                current.textContent = `0${slideIndex}`;
-            } else {
-                current.textContent = slideIndex;
-            }
+            addingZero ();
 
-            dots.forEach(dot => dot.style.opacity = '.5');
-            dots[slideIndex - 1].style.opacity = 1;
-
+            changeDotsStyle ();
         });
     });
 
