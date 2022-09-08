@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/okeanpivasika/food-project/issues"
   },
-  "homepage": "https://github.com/okeanpivasika/food-project#readme",
-  "devDependencies": {
-    "json-server": "^0.17.0"
-  }
+  "homepage": "https://github.com/okeanpivasika/food-project#readme"
 }
