@@ -584,4 +584,6 @@ function getTimeRemaining(endtime) {
     getDynamicInformation('#weight');
     getDynamicInformation('#age');
 
+
+    console.log("script ended");
 });
