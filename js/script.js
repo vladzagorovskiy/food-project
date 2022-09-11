@@ -517,6 +517,7 @@ function getTimeRemaining(endtime) {
         ratio = 1.375;
 
     function calcTotal() {
+        console.log("calculator total result")
         if (!sex || !height || !weight || !age || !ratio) {
             result.textContent = '____';
             return;
@@ -562,16 +563,15 @@ function getTimeRemaining(endtime) {
 
     function getDynamicInformation(selector) {
         const input = document.querySelector(selector);
-
-        input.addEventListener('input', () => {
+        input.addEventListener("input", () => {
             switch(input.getAttribute('id')) {
                 case 'height':
                     height = +input.value;
                     break;
-                case 'weigth':
+                case 'weight': 
                     weight = +input.value;
                     break;
-                case 'eag':
+                case 'age':
                     age = +input.value;
                     break;
             }
