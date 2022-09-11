@@ -568,7 +568,7 @@ function getTimeRemaining(endtime) {
                 case 'height':
                     height = +input.value;
                     break;
-                case 'weigth':
+                case 'weight':
                     weight = +input.value;
                     break;
                 case 'eag':
