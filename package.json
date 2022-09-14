@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/okeanpivasika/food-project/issues"
   },
-  "homepage": "https://github.com/okeanpivasika/food-project#readme"
+  "homepage": "https://github.com/okeanpivasika/food-project#readme",
+  "devDependencies": {
+    "webpack-cli": "^4.10.0"
+  }
 }
