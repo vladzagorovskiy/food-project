@@ -8,7 +8,7 @@ function calc() {
         ratio = 1.375;
 
     function calcTotal() {
-        console.log("calculator total result")
+       
         if (!sex || !height || !weight || !age || !ratio) {
             result.textContent = '____';
             return;
@@ -76,8 +76,8 @@ function calc() {
     getDynamicInformation('#age');
 
 
-    console.log("script ended");
+    
 
 }
 
-module.exports = calc;
+export default calc;
